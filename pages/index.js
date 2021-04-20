@@ -19,7 +19,7 @@ export default function Home({list}) {
         </a>
         
         <p>
-          Atravez da API do TMDB estamos buscando a lista de Filmes em destaque.
+          Atraves da API do TMDB estamos buscando a lista de Filmes em destaque.
         </p>
         <ul>
         {list.map(item=>(
