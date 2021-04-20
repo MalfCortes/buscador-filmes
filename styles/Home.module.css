@@ -1,0 +1,31 @@
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main ul{
+  list-style: 0 ;
+  margin: 0;
+}
+
+.main li{
+    display:inline-block;
+    margin:20px;
+}
+
+.main a:hover{
+  color: blue;
+}
