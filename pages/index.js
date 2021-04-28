@@ -19,17 +19,17 @@ export default function Home({list}) {
         </a>
         
         <p>
-          Atraves da API do TMDB estamos buscando a lista de Filmes em destaque.
+          Atravez da API do TMDB estamos buscando a lista de Filmes em destaque.
         </p>
         <ul>
         {list.map(item=>(
             <li>
-              <a href={`/post/${item.id}`}>
+              <a href={`/movie/${item.id}`}>
               {item.title}<br/>
               <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} width='150' />
               </a>
             </li>
-          ))}
+          ))};
           </ul>
           <p>by video do aula Bonieky Lacerda<br/>
             https://www.youtube.com/watch?v=xjrDEZQ5LnA&t=724s</p>
@@ -39,7 +39,7 @@ export default function Home({list}) {
 }
 
 export async function getServerSideProps(){
-  const res = await fetch('http://buscador-filmes.vercel.app/api/trending');
+  const res = await fetch('http://localhost:3000/api/trending');
   const json = await res.json();
   return{
       props:{

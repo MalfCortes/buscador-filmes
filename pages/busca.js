@@ -1,19 +1,20 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import styles from '../styles/Home.module.css';
+import Link from 'next/link';
 
 export default function Busca() {
     const [searchText, setSearchText] = useState('');
     const [movieList, SetMovieList] = useState([]);
-
     const handleSearch = async () => {
-        if(searchText !== ''){
-            const result = await fetch(`https://buscador-filmes-malfcortes.vercel.app/api/search?q=${searchText}`)
-            const json = await result.json();
-            SetMovieList(json.list);
-            console.log("aqui", json);
-        }
+      if(searchText !== ''){
+          const result = await fetch(`http://localhost:3000/api/search?q=${searchText}`)
+          const json = await result.json();
+          SetMovieList(json.list);
+          
+      }
     }
+   
 
   return (
     <div className={styles.container}>
@@ -23,6 +24,7 @@ export default function Busca() {
       </Head>
 
       <main className={styles.main}>
+      <Link href="/">Voltar para mais vistos</Link>
         <h1 className={styles.title}>
           Busca de Filme
         </h1>
@@ -35,7 +37,7 @@ export default function Busca() {
         <ul>
         {movieList.map(item=>(
             <li>
-              <a href={`/post/${item.id}`}>
+              <a href={`/movie/${item.id}`}>
               {item.title}<br/>
               <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} width='150' />
               </a>
@@ -47,3 +49,5 @@ export default function Busca() {
      </div>     
   )
 }
+
+ 
