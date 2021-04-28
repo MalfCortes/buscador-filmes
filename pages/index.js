@@ -39,7 +39,7 @@ export default function Home({list}) {
 }
 
 export async function getServerSideProps(){
-  const res = await fetch('http://localhost:3000/api/trending');
+  const res = await fetch('buscador-filmes.vercel.app/api/trending');
   const json = await res.json();
   return{
       props:{
