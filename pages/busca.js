@@ -8,7 +8,7 @@ export default function Busca() {
     const [movieList, SetMovieList] = useState([]);
     const handleSearch = async () => {
       if(searchText !== ''){
-          const result = await fetch(`http://localhost:3000/api/search?q=${searchText}`)
+          const result = await fetch(`https://buscador-filmes-malfcortes.vercel.app/api/search?q=${searchText}`)
           const json = await result.json();
           SetMovieList(json.list);
           
